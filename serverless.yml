@@ -1,5 +1,4 @@
-service:
-  name: serverless-coding
+service: serverless-coding
 
 plugins:
   - serverless-plugin-typescript
@@ -9,6 +8,9 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+
+useDotenv: true
 
 functions:
   main:

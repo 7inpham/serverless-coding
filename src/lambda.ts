@@ -17,8 +17,8 @@ async function bootstrapServer(): Promise<Server> {
   if (!cachedServer) {
     const expressApp = express();
     const nestApp = await NestFactory.create(
-        AppModule,
-        new ExpressAdapter(expressApp),
+      AppModule,
+      new ExpressAdapter(expressApp),
     );
     nestApp.use(eventContext());
     await nestApp.init();

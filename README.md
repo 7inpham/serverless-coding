@@ -5,7 +5,14 @@ NestJS + Postgres + Serverless + AWS Lamdba.
 ## Prerequisite
 
 - Copy `.env` as `.env.local` and replace `<TO_BE_REPLACED>` with your variables
-- AWS IAM account with right permissions
+- AWS IAM API key and secret with at least these permissions:
+    - AWSCloudFormationFullAccess
+    - AmazonS3FullAccess
+    - IAMFullAccess
+    - AmazonAPIGatewayInvokeFullAccess
+    - AmazonAPIGatewayAdministrator
+    - AmazonAPIGatewayPushToCloudWatchLogs
+    - AWSLambda_FullAccess
 
 ## Installation
 
@@ -46,11 +53,14 @@ $ npm run test:cov
 $ serverless offline
 
 # configure credentials
-serverless config credentials --provider aws --key <TO_BE_REPLACED> --secret <TO_BE_REPLACED>
+$ serverless config credentials --provider aws --key <TO_BE_REPLACED> --secret <TO_BE_REPLACED>
 
 # deploy
 $ serverless deploy
 
 # remove
-serverless remove
+$ serverless remove
+
+# check logs
+$ serverless logs -f main
 ```
